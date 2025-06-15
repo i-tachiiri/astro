@@ -16,6 +16,24 @@ public partial class DashboardViewModel : ObservableObject
     [ObservableProperty]
     private string _name = string.Empty;
 
+    [ObservableProperty]
+    private string _email = string.Empty;
+
+    [ObservableProperty]
+    private DateTime _birthDate = DateTime.Today;
+
+    [ObservableProperty]
+    private string _birthTime = "00:00";
+
+    [ObservableProperty]
+    private string _lat = "0";
+
+    [ObservableProperty]
+    private string _lon = "0";
+
+    [ObservableProperty]
+    private string _timeZone = "UTC";
+
     public ObservableCollection<Client> Clients { get; } = new();
 
     public DashboardViewModel(IClientService clientService)
@@ -38,9 +56,27 @@ public partial class DashboardViewModel : ObservableObject
     private async Task AddClientAsync()
     {
         if (string.IsNullOrWhiteSpace(Name)) return;
-        var dto = new CreateClientDto(Guid.NewGuid(), Name, null, DateTime.Today, new TimeOnly(0, 0), 0m, 0m, "UTC");
+        if (!TimeOnly.TryParse(BirthTime, out var time)) return;
+        if (!decimal.TryParse(Lat, out var lat)) return;
+        if (!decimal.TryParse(Lon, out var lon)) return;
+
+        var dto = new CreateClientDto(
+            Guid.NewGuid(),
+            Name,
+            string.IsNullOrWhiteSpace(Email) ? null : Email,
+            BirthDate,
+            time,
+            lat,
+            lon,
+            TimeZone);
         await _clientService.CreateAsync(dto);
         Name = string.Empty;
+        Email = string.Empty;
+        BirthDate = DateTime.Today;
+        BirthTime = "00:00";
+        Lat = "0";
+        Lon = "0";
+        TimeZone = "UTC";
         await LoadAsync();
     }
 }
