@@ -59,6 +59,13 @@ For detailed Azure setup and required environment variables, see
 [docs/azure-setup.md](docs/azure-setup.md).
 After provisioning, copy `.env.example` to `.env` and fill in the connection strings.
 
+## 📚 Documentation
+
+* [docs/requirements.md](docs/requirements.md) – product requirements
+* [docs/data-design.md](docs/data-design.md) – domain & data model
+* [docs/ui-design.md](docs/ui-design.md) – screen flows & MVVM mapping
+* [docs/architectures/application-design.md](docs/architectures/application-design.md) – architecture guide
+
 ---
 
 ## 🗂 Repository Layout
