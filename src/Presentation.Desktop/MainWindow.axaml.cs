@@ -8,5 +8,6 @@ public partial class MainWindow : Window
     {
         DataContext = vm;
         InitializeComponent();
+        vm.DashboardViewModel.LoadCommand.Execute(null);
     }
 }
