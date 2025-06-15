@@ -6,10 +6,6 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Presentation.Desktop.MainWindow"
         x:DataType="vm:MainWindowViewModel"
-        Title="Notes">
-    <StackPanel Margin="20" Spacing="10">
-        <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"/>
-        <Button Content="Add" Command="{Binding AddNoteCommand}" Width="100"/>
-        <ListBox ItemsSource="{Binding Notes}" DisplayMemberBinding="{Binding Title}" Height="300" />
-    </StackPanel>
+        Title="AstroReport">
+    <vm:DashboardView DataContext="{Binding DashboardViewModel}" />
 </Window>
