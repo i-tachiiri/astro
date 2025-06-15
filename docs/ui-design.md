@@ -78,8 +78,8 @@ stateDiagram-v2
 
 ## 5. スタイルガイド
 
-* **フォント**: Noto Sans JP / Inter
-* **カラー**: ベース #1B2538、アクセント #FFAA00
+* **フォント**: Noto Sans JP / M PLUS Rounded 1c
+* **カラー**: ベース #FFF7F9、アクセント #F48FB1
 * **ダークモード**のみ対応 (Light は backlog)
 * **コンポーネント共通スタイル** → `src/Presentation.Desktop/Styles/`
 
