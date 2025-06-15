@@ -18,7 +18,7 @@ Docker Desktop を起動し、Docker Engine が動作していることを確認
 $ docker-compose up -d
 ```
 
-Azruite では `AZURITE_KEY` 環境変数にストレージアカウントキーを指定します。既定値は `AzuriteAzuriteAzuriteAzurite` です。
+Azurite では `AZURITE_KEY` 環境変数にストレージアカウントキーを指定します。既定値は `AzuriteAzuriteAzuriteAzurite` です。
 
 ## Azure リソースの作成
 
@@ -82,7 +82,7 @@ $ dotnet run --project src/Presentation.Desktop
 バックアップサービスを手動で実行する場合は次のコマンドを利用します。
 
 ```bash
-$ dotnet run --project src/BackupService -- sync
+$ dotnet run --project src/BackupService --sync
 ```
 
 ## 参考
