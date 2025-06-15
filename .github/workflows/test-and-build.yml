@@ -13,6 +13,8 @@ jobs:
       - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '8.0.x'
+          cache: true
+          cache-dependency-path: '**/*.csproj'
       - run: dotnet restore
-      - run: dotnet build MyTemplate.sln -c Release
-      - run: dotnet test MyTemplate.sln
+      - run: dotnet build MyTemplate.sln -c Release --no-restore
+      - run: dotnet test MyTemplate.sln -c Release --no-build --no-restore
