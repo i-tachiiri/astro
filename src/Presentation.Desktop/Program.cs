@@ -5,6 +5,7 @@ using Serilog.Events;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Core.Application;
 using Core.Application.Commands;
@@ -49,6 +50,16 @@ class Program
                 services.AddSingleton<MainWindow>();
             })
             .Build();
+
+        var dbContextType = Assembly.Load("Infrastructure").GetType("Infrastructure.AppDbContext");
+        if (dbContextType != null)
+        {
+            using var scope = AppHost.Services.CreateScope();
+            if (scope.ServiceProvider.GetService(dbContextType) is DbContext db)
+            {
+                db.Database.Migrate();
+            }
+        }
 
         AppHost.Start();
         BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
