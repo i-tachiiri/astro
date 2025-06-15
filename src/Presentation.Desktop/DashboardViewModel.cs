@@ -38,7 +38,7 @@ public partial class DashboardViewModel : ObservableObject
     private async Task AddClientAsync()
     {
         if (string.IsNullOrWhiteSpace(Name)) return;
-        var dto = new CreateClientDto(Guid.NewGuid(), Name, null, DateTime.Today, new TimeOnly(0,0), 0m, 0m, "UTC");
+        var dto = new CreateClientDto(Guid.NewGuid(), Name, null, DateTime.Today, new TimeOnly(0, 0), 0m, 0m, "UTC");
         await _clientService.CreateAsync(dto);
         Name = string.Empty;
         await LoadAsync();

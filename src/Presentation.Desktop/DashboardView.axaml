@@ -7,9 +7,10 @@
              x:DataType="vm:DashboardViewModel"
              mc:Ignorable="d">
     <StackPanel Margin="20" Spacing="10">
-        <TextBlock Text="Clients" FontSize="18" />
-        <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Watermark="Name" />
-        <Button Content="Add" Command="{Binding AddClientCommand}" Width="100" Classes="accent"/>
+        <TextBlock Text="顧客管理" FontSize="18" />
+        <TextBlock Text="この画面では顧客の追加と一覧表示を行えます。" Margin="0,0,0,10" />
+        <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Watermark="名前" />
+        <Button Content="追加" Command="{Binding AddClientCommand}" Width="100" Classes="accent"/>
         <ListBox ItemsSource="{Binding Clients}" DisplayMemberBinding="{Binding Name}" Height="300" />
     </StackPanel>
 </UserControl>
