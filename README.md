@@ -22,6 +22,7 @@ Clean Architecture scaffold for Avalonia UI apps.
 * **One‑command dev** – `docker-compose up` spins up Azurite + SQL Server.
 * **Full CI/CD** – GitHub Actions: build, test, release, IaC deploy.
 * **Cost‑optimised** – Idle cloud cost ≈ **¥500/月**.
+* [**Architecture guide**](docs/architectures/application-design.md) – CQRS commands and folder layout.
 
 ---
 
