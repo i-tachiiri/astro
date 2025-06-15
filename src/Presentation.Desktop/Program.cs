@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using System.Reflection;
 using Avalonia;
 using Serilog.Events;
@@ -51,15 +52,9 @@ class Program
             })
             .Build();
 
-        var dbContextType = Assembly.Load("Infrastructure").GetType("Infrastructure.AppDbContext");
-        if (dbContextType != null)
-        {
-            using var scope = AppHost.Services.CreateScope();
-            if (scope.ServiceProvider.GetService(dbContextType) is DbContext db)
-            {
-                db.Database.Migrate();
-            }
-        }
+        var initializer = Assembly.Load("Infrastructure").GetType("Infrastructure.DbInitializer");
+        var initMethod = initializer?.GetMethod("InitializeAsync");
+        ((Task?)initMethod?.Invoke(null, new object[] { AppHost.Services }))?.GetAwaiter().GetResult();
 
         AppHost.Start();
         BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
