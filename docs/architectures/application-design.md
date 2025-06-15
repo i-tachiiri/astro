@@ -72,8 +72,8 @@ Core/Application/
 ## 5. TODO（初期タスク）
 
 * [ ] CQRS 一覧の空欄（エッジケース）を洗い出し
-* [ ] Interfaces（Repository, Service ラッパー）スケルトン生成
-* [ ] CreateClient, GenerateChart, CreateReport の **赤テスト** を追加
+* [x] Interfaces（Repository, Service ラッパー）スケルトン生成
+* [x] CreateClient, GenerateChart, CreateReport の **赤テスト** を追加
 * [ ] GitHub Actions にテスト実行ジョブを追加
 
 
