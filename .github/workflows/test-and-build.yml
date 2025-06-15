@@ -17,4 +17,4 @@ jobs:
           cache-dependency-path: '**/*.csproj'
       - run: dotnet restore
       - run: dotnet build MyTemplate.sln -c Release --no-restore
-      - run: dotnet test MyTemplate.sln --no-build --no-restore
+      - run: dotnet test MyTemplate.sln -c Release --no-build --no-restore
