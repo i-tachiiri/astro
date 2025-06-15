@@ -14,4 +14,6 @@ public class Note
         Title = title;
         Content = content;
     }
+
+    private Note() { }
 }
