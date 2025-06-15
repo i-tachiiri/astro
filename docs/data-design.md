@@ -138,7 +138,7 @@ erDiagram
 | FilePath    | NVARCHAR(400)    | NOT NULL             | 生成 PDF 保存先         |
 | GeneratedAt | DATETIME2        | DEFAULT GETUTCDATE() |                    |
 
-### 2.11 `ReportSections` – flexible pages `ReportSections` – flexible pages
+### 2.11 `ReportSections` – flexible pages
 
 | Column              | Type             | Constraints        | Notes                                            |
 | ------------------- | ---------------- | ------------------ | ------------------------------------------------ |
@@ -154,7 +154,15 @@ erDiagram
 
 ### 2.12 `SyncJobs`
 
-\| Id PK · AstrologerId FK · JobType NVARCHAR(20) · Status NVARCHAR(20) · StartedAt · EndedAt · ErrorMsg |
+| Column        | Type             | Constraints              | Notes                         |
+| ------------- | ---------------- | ------------------------ | ----------------------------- |
+| Id            | UNIQUEIDENTIFIER | PK                       |
+| AstrologerId  | UNIQUEIDENTIFIER | FK → Astrologers(Id) |
+| JobType       | NVARCHAR(20)     | NOT NULL             | `Backup`,`Restore` etc
+| Status        | NVARCHAR(20)     | NOT NULL             | `Pending`,`Running`,`Done`
+| StartedAt     | DATETIME2        | DEFAULT GETUTCDATE()     |
+| EndedAt       | DATETIME2        | NULL                     |
+| ErrorMsg      | NVARCHAR(200)    | NULL                     | error detail
 
 ---
 
