@@ -2,7 +2,7 @@
 
 > **目的** – CQRS コマンド・クエリの一覧、`src/Core/Application` の構成指針、テスト方針をまとめる “作業台帳”。実装フェーズで都度更新していく **Living Document** です。
 >
-> **場所** – `docs/architecture/application-design.md` で管理。（README からリンク）
+> **場所** – `docs/architectures/application-design.md` で管理。（README からリンク）
 
 ---
 
