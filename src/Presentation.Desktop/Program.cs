@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Serilog;
 using Core.Application;
 using Core.Application.Commands;
+using Core.Application.Commands.CreateClient;
 
 namespace Presentation.Desktop;
 
@@ -41,6 +42,9 @@ class Program
 
                 services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<CreateNoteHandler>());
                 services.AddTransient<INoteService, NoteService>();
+                services.AddTransient<IClientService, ClientService>();
+                services.AddSingleton<DashboardViewModel>();
+                services.AddSingleton<DashboardView>();
                 services.AddSingleton<MainWindowViewModel>();
                 services.AddSingleton<MainWindow>();
             })

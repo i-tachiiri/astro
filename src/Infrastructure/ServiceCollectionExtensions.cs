@@ -1,4 +1,5 @@
 using Core.Application;
+using Core.Application.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,6 +11,7 @@ public static class ServiceCollectionExtensions
     {
         services.AddDbContext<AppDbContext>(opt => opt.UseSqlite(connectionString));
         services.AddScoped<INoteRepository, NoteRepository>();
+        services.AddScoped<IClientRepository, ClientRepository>();
         return services;
     }
 }
